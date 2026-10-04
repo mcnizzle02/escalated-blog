@@ -1,0 +1,18 @@
+name: Publish to Hashnode
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: Hashnode/publish-github-action@v1
+        with:
+          access-token: ${{ secrets.HASHNODE_PAT }}
+          publication-id: 6ac18f50714cfe8c6852c69f
+          posts-directory: posts
